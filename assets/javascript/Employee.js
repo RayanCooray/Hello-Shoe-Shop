@@ -93,6 +93,51 @@ $(document).ready(function () {
     });
 });
 
+$('#emp-table tbody').on('click', 'tr', function() {
+    // Get the code of the clicked employee
+    const employeeCode = $(this).find('td:first').text();
+
+    // Output the code
+    console.log("Employee Code:", employeeCode);
+    employeeAPI.searchEmployee(employeeCode).then(r => {
+        alert(`Success: ${r}`);
+        console.log(r)
+    });
+    
+});
+
+
+
+//
+// $('#emp-table tbody').on('click', 'tr', function() {
+//     // Get the code of the clicked employee
+//     const employeeCode = $(this).find('td:first').text();
+//
+//     // Output the code
+//     console.log("Employee Code:", employeeCode);
+//     employeeAPI.searchEmployee(employeeCode).then(employee => {
+//         // Assuming the profile picture is stored in the 'profile_picture' property of the employee object
+//         const profilePictureBase64 = employee.profile_picture;
+//
+//         // Create a new image element
+//         const img = document.createElement('img');
+//         // Set the src attribute to the Base64 string
+//         img.src = profilePictureBase64;
+//         // Assuming you have an element with id 'profile-picture-container' where you want to display the image
+//         // const profilePictureContainer = document.getElementById('profile-picture-container');
+//         // // Clear the container before appending the new image
+//         // profilePictureContainer.innerHTML = '';
+//         // // Append the image to the container
+//         // profilePictureContainer.appendChild(img);
+//        
+//
+//         alert(`Success: Employee found`);
+//         console.log("Employee Data:", employee);
+//     }).catch(error => {
+//         console.error('Error searching for employee:', error);
+//     });
+// });
+
 
 function updateEmployeeTable() {
     $.ajax({
