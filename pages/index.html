@@ -171,7 +171,7 @@
             </span>
                 <h3>Employee</h3>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" id="Supplier-nav-item">
                     <span class="material-symbols-outlined">
                     local_shipping
                     </span>
@@ -476,22 +476,29 @@
     </section>
     <section class="form-employee" id="form-employee">
         <div id="employee-form-sector">
-            <button type="button" class="add-employee-button" data-toggle="modal" data-target="#customerModal">
-                Add Employee
-            </button>
-            <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+            <div id="div-up-section-employee">
+                <button type="button" class="add-employee-button" data-toggle="modal" data-target="#employeeModal">
+                    Add Employee
+                </button>
+            </div>
+            <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="customerModalLabel">Add Employee</h5>
+                            <h5 class="modal-title" id="employeeModalLabel">Add Employee</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+
+
                         </div>
                         <div class="modal-body">
                             <form id="employeeForm">
                                 <div class="row">
                                     <div class="col-md-6" id="1st-row-dialog">
+                                        <div class="form-group col-left-grp">
+                                            <input type="text" class="form-control" id="code" placeholder="Code" disabled>
+                                        </div>
                                         <div class="form-group col-left-grp">
                                             <input type="text" class="form-control" id="emName" placeholder="Name">
                                         </div>
@@ -557,50 +564,129 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" id="savebutton-modal" class="btn btn-primary">Save</button>
-
-
+                                <button type="submit" id="save-button-modal" class="btn">Save</button>
+                                <button type="submit" id="update-button-modal" class="btn">Update</button>
+                                <button type="submit" id="Delete-button-modal" class="btn">Delete</button>
                             </form>
-
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-        <table class="table table-bordered">
+            <table class="table table-bordered " id="emp-table">
             <thead>
             <tr>
                 <th>Code</th>
                 <th>Name</th>
                 <th>Gender</th>
-                <th>Username</th>
                 <th>Role</th>
+                <th>Guardian</th>
                 <th>Branch</th>
-                <th>Contact No</th>
+                <th>Designation</th>
                 <th>Email</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody></tbody>
+        </table>
+<!--        <div id="div-employee-footer">-->
+<!--        </div>-->
+    </section>
+    <section class="form-supplier" id="form-supplier">
+        <div id="supplier-form-sector">
+            <div id="div-up-section-supplier">
+                <button type="button" class="add-supplier-button" data-toggle="modal" data-target="#supplierModal">
+                    Add Supplier
+                </button>
+            </div>
+        </div>
+        <div class="modal fade" id="supplierModal" tabindex="-1" aria-labelledby="supplierModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="supplierModalLabel">Add Supplier</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="supplierForm">
+                            <div class="row">
+                                <div class="col-md-6 row-supplier-left">
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="supplier_id" name="supplier_id" placeholder="Supplier Code" disabled>
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="Supplier Name">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <select class="form-select" id="category" name="category" placeholder="Supplier Category">
+                                    <!-- Add your categories here -->
+                                    <option value="CATEGORY1">Category 1</option>
+                                    <option value="CATEGORY2">Category 2</option>
+                                    <!-- etc. -->
+                                </select>
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_01" name="address_line_01" placeholder="Supplier Building">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_02" name="address_line_02" placeholder="Supplier Street">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_03" name="address_line_03" placeholder="Supplier City">
+                            </div>
+                                </div>
+                                <div class="col-md-6">
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_04" name="address_line_04" placeholder="Supplier Province">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_05" name="address_line_05" placeholder="Supplier Postal Code">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="address_line_06" name="address_line_06" placeholder="Supplier ">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="contact_no_1" name="contact_no_1" placeholder="Supplier Contact No">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="text" class="form-control" id="contact_no_2" name="contact_no_2" placeholder="Supplier Contact No ">
+                            </div>
+                            <div class="mb-3 input-field-supplier">
+                                <input type="email" class="form-control" id="supplier emai" name="email" placeholder="Supplier Email">
+                            </div>
+                                </div>
+                            </div>
+                            <!-- You can add fields for stockEntities here if needed -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" id="saveSupplierButton" class="btn">Save</button>
+                        <button type="submit" id="updateSupplierButton" class="btn">Update</button>
+                        <button type="submit" id="deleteSupplierButton" class="btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table" id="supplier-table">
+            <thead>
             <tr>
-                <th scope="row">1</th>
-                <td>John</td>
-                <td>John</td>
-                <td>John</td>
-                <td>John</td>
-                <td>John</td>
-                <td>John</td>
-                <td>John</td>
-
+                <th>Code</th>
+                <th>Name</th>
+                <th>category</th>
+                <th>Number</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>contact no</th>
+                <th>contact no</th>
+                <th>email</th>
             </tr>
-
-            </tbody>
+            </thead>
+            <tbody></tbody>
         </table>
     </section>
-
 </section>
 
 
