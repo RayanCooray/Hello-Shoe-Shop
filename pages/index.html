@@ -177,7 +177,13 @@
                     </span>
                 <h3>Suppliers</h3>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" id="inventory_set-nav-item">
+                    <span class="material-symbols-outlined">
+                    category
+                    </span>
+                <h3>Inventory</h3>
+            </a>
+            <a href="#" class="nav-item" id="item-set-nav-item">
                     <span class="material-symbols-outlined">
                     category
                     </span>
@@ -311,7 +317,7 @@
             </div>
             <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center" id="dashboard-upgrade">
                         <span>
-                          <a href="index.html"  class="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
+                          <a id="dashboard-pic" href="index.html"  class="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
                         </span>
             </div>
         </div>
@@ -619,8 +625,8 @@
                             <div class="mb-3 input-field-supplier">
                                 <select class="form-select" id="category" name="category" placeholder="Supplier Category">
                                     <!-- Add your categories here -->
-                                    <option value="CATEGORY1">Category 1</option>
-                                    <option value="CATEGORY2">Category 2</option>
+                                    <option value="International">International</option>
+                                    <option value="Local">Local</option>
                                     <!-- etc. -->
                                 </select>
                             </div>
@@ -651,7 +657,7 @@
                                 <input type="text" class="form-control" id="contact_no_2" name="contact_no_2" placeholder="Supplier Contact No ">
                             </div>
                             <div class="mb-3 input-field-supplier">
-                                <input type="email" class="form-control" id="supplier emai" name="email" placeholder="Supplier Email">
+                                <input type="email" class="form-control" id="supplier_email" name="email" placeholder="Supplier Email">
                             </div>
                                 </div>
                             </div>
@@ -660,7 +666,7 @@
                     </div>
                     <div class="modal-footer">
 
-                        <button type="submit" id="saveSupplierButton" class="btn">Save</button>
+                        <button type="submit" id="saveSupplierButton" class="btn">Save </button>
                         <button type="submit" id="updateSupplierButton" class="btn">Update</button>
                         <button type="submit" id="deleteSupplierButton" class="btn">Delete</button>
                     </div>
@@ -677,8 +683,8 @@
                 <th>Street</th>
                 <th>City</th>
                 <th>Province</th>
-                <th>State</th>
                 <th>Postal Code</th>
+                <th>State</th>
                 <th>contact no</th>
                 <th>contact no</th>
                 <th>email</th>
@@ -687,6 +693,215 @@
             <tbody></tbody>
         </table>
     </section>
+    <section class="form-inventory-set" id="form-inventory-set">
+        <div id="inventory-set-form-sector">
+            <div class="div-up-inventory-set">
+                <button type="button" class="inventory-set-button" id="GenderButton" data-toggle="modal" data-target="#genderModal">
+                    Add Gender
+                </button>
+            </div>
+            <div class="div-up-inventory-set">
+                <button type="button" class="inventory-set-button" id="occasionButton" data-toggle="modal" data-target="#OccasionModal">
+                    Add Occasion
+                </button>
+            </div>
+            <div class="div-up-inventory-set">
+                <button type="button" class="inventory-set-button" id="VarietyButton" data-toggle="modal" data-target="#VarietyModal">
+                    Add Variety
+                </button>
+            </div>
+        </div>
+        <!-- Gender Modal -->
+        <div class="modal fade" id="genderModal" tabindex="-1" aria-labelledby="genderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content content-model">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="genderModalLabel">Add Gender</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="genderForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="genderCode" name="genderCode" placeholder="Gender Code" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="genderDesc" name="genderDesc" placeholder="Gender Desciption" required>
+                            </div>
+                            <!-- Add other fields as necessary -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="saveGenderButton" class="btn">Save</button>
+                        <button type="submit" id="updateGenderButton" class="btn">Update</button>
+                        <button type="submit" id="deleteGenderButton" class="btn">Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Occasion Modal -->
+        <div class="modal fade" id="OccasionModal" tabindex="-1" aria-labelledby="OccasionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content content-model-Occasion">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="OccasionModalLabel">Add Occasion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="OccasionForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="OccasionCode" name="OccasionCode" placeholder="Occasion Code" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="OccasionDesc" name="OccasionDesc" placeholder="Occasion Desciption" required>
+                            </div>
+                            <!-- Add other fields as necessary -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="saveOccasionButton" class="btn">Save</button>
+                        <button type="submit" id="updateOccasionButton" class="btn">Update</button>
+                        <button type="submit" id="deleteOccasionButton" class="btn">Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Variety Modal -->
+        <div class="modal fade" id="VarietyModal" tabindex="-1" aria-labelledby="VarietyModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content content-model-Variety">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="VarietyModalLabel">Add Variety</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="VarietyForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="VarietyCode" name="VarietyCode" placeholder="Variety Code" required>
+                            </div>Variety
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="VarietyDesc" name="VarietyDesc" placeholder="Variety Desciption" required>
+                            </div>
+                            <!-- Add other fields as necessary -->
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="saveVarietyButton" class="btn">Save</button>
+                        <button type="submit" id="updateVarietyButton" class="btn">Update</button>
+                        <button type="submit" id="deleteVarietyButton" class="btn">Delete</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="table-label-Gender">Gender Table</div>
+        <table class="table" id="Gender-table">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+        <div class="table-label-Occasion">Occasion Table</div>
+        <table class="table" id="Occasion-table">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+        <div class="table-label-Variety">Variety Table</div>
+        <table class="table" id="Variety-table">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+    </section>
+    <section class="form-item" id="form-item">
+        <div id="item-form-sector">
+            <div id="div-up-section-item">
+                <button type="button" class="add-item-button" data-toggle="modal" data-target="#ItemModal">
+                    Add Item
+                </button>
+            </div>
+        </div>
+        <div class="modal fade" id="ItemModal" tabindex="-1" role="dialog" aria-labelledby="ItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ItemModalLabel">Add New Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="item_code" placeholder="Enter item code">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="item_desc" placeholder="Enter item description">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="item_qty" placeholder="Enter item quantity">
+                            </div>
+                            <div class="form-group">
+                                <input type="url" class="form-control" id="item_pic" placeholder="Enter item picture URL">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="status-item" placeholder="Enter status">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="stocks" placeholder="Enter stocks">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="occasionEntity" placeholder="Enter occasion">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="varietyEntity" placeholder="Enter variety">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="genderEntity" placeholder="Enter gender">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" id="saveItemButton" class="btn">Save </button>
+                        <button type="submit" id="updateItemButton" class="btn">Update</button>
+                        <button type="submit" id="deleteItemButton" class="btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>
 
 
@@ -694,9 +909,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include jwt-decode library -->
+<script src="../assets/jquery/jwt-decode.min.js"></script>
 <script type="module" src="../assets/javascript/Login.js"></script>
 <script type="module" src="../assets/javascript/Customer.js"></script>
 <script type="module" src="../assets/javascript/Employee.js"></script>
+<script type="module" src="../assets/javascript/Supplier.js"></script>
+<script type="module" src="../assets/javascript/Inventory.js"></script>
 <script src="../assets/javascript/navigation.js"></script>
 <script src="../assets/javascript/app.js"></script>
 <script src="../assets/jquery/jquery.min.js"></script>
